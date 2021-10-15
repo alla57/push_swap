@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 15:23:55 by alla              #+#    #+#             */
-/*   Updated: 2021/10/14 16:40:39 by alla             ###   ########.fr       */
+/*   Created: 2021/10/14 16:42:03 by alla              #+#    #+#             */
+/*   Updated: 2021/10/14 21:30:54 by alla             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#include <unistd.h>
+#include "libft.h"
 
-# define PUSH_SWAP_H
+void	ft_putstr(char *s)
+{
+	int i;
 
-# include "../Libft/libft.h"
-# include <stdio.h>
-# include <stdlib.h>
-
-#endif
+	i = 0;
+	while (s[i])
+		write(1, &s[i++], 1);
+}
