@@ -9,6 +9,7 @@ NAME = push_swap
 LIBFTD = Libft/libft.a
 
 SRC_PATH =	push_swap.c		\
+			check_args.c	\
 
 SRC = $(addprefix src/,$(SRC_PATH))
 
