@@ -6,7 +6,7 @@
 /*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 20:48:21 by alla              #+#    #+#             */
-/*   Updated: 2021/10/15 20:51:40 by alla             ###   ########.fr       */
+/*   Updated: 2021/10/15 21:09:26 by alla             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	atoi_moded(const char *str)
 {
-	int i;
-	int nb;
-	int sign;
+	int	i;
+	int	nb;
+	int	sign;
 
 	i = 0;
 	nb = 0;
@@ -36,8 +36,8 @@ int	atoi_moded(const char *str)
 
 int	is_duplicates_num(char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 1;
@@ -54,9 +54,9 @@ int	is_duplicates_num(char **argv)
 
 int	is_over_intmax(const char *str)
 {
-	int i;
-	int nb;
-	int tmp;
+	int	i;
+	int	nb;
+	int	tmp;
 
 	i = 0;
 	nb = 0;
@@ -75,7 +75,7 @@ int	is_over_intmax(const char *str)
 
 int	is_number(char *num)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (num[0] == '-')
@@ -89,7 +89,7 @@ int	is_number(char *num)
 
 int	is_valid_args(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argc < 3)
