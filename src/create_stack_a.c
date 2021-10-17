@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:21:14 by alla              #+#    #+#             */
-/*   Updated: 2021/10/17 15:25:53 by alla             ###   ########.fr       */
+/*   Updated: 2021/10/17 21:07:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,10 @@ t_stack	*create_new_node(int value)
 	return (node);
 }
 
-int	create_stack_a(char **argv, t_stack **head)
+void	create_stack_a(char **argv, t_stack **head)
 {
 	int	i;
 	t_stack	*new;
-	t_stack *tmp;
 
 	i = 1;
 	*head = create_new_node(0);
@@ -68,12 +67,4 @@ int	create_stack_a(char **argv, t_stack **head)
 		new = create_new_node(atoi_moded(argv[i++]));
 		add_node_back(*head, new);
 	}
-	tmp = (*head)->next;
-	while (tmp != (*head)->prev)
-	{
-		printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("%d\n", tmp->value);
-	return (0);
 }

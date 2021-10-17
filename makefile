@@ -12,6 +12,8 @@ SRC_PATH =	push_swap.c			\
 			check_args.c		\
 			create_stack_a.c	\
 			operations.c		\
+			my_utils.c			\
+			algo.c				\
 
 SRC = $(addprefix src/,$(SRC_PATH))
 

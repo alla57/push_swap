@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:22:51 by alla              #+#    #+#             */
-/*   Updated: 2021/10/17 16:19:58 by alla             ###   ########.fr       */
+/*   Updated: 2021/10/17 22:16:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	main(int argc, char **argv)
 	if (!is_valid_args(argc, argv + 1))
 		return (0);
 	create_stack_a(argv, &head);
-	printf("first word is %d\n", head->next->value);
+	algo_three_values(head);
+	printf("is the stack in order ? %d\n", is_in_order(head));
+	// print_stack(head);
 	printf("gg\n");
 	return (0);
 }
