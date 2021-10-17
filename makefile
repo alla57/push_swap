@@ -11,6 +11,7 @@ LIBFTD = Libft/libft.a
 SRC_PATH =	push_swap.c			\
 			check_args.c		\
 			create_stack_a.c	\
+			operations.c		\
 
 SRC = $(addprefix src/,$(SRC_PATH))
 
