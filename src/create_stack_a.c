@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:21:14 by alla              #+#    #+#             */
-/*   Updated: 2021/10/17 21:07:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/18 20:09:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	add_node_back(t_stack *head, t_stack *new)
 	head->prev = new;
 }
 
-t_stack	*create_new_node(int value)
+t_stack	*create_new_node(int value, int index)
 {
 	t_stack	*node;
 
@@ -47,6 +47,7 @@ t_stack	*create_new_node(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
+	node->index = index;
 	node->prev = node;
 	node->next = node;
 	return (node);
@@ -55,16 +56,18 @@ t_stack	*create_new_node(int value)
 void	create_stack_a(char **argv, t_stack **head)
 {
 	int	i;
+	int	index;
 	t_stack	*new;
 
 	i = 1;
+	index = 1;
 	*head = create_new_node(0);
-	new = create_new_node(atoi_moded(argv[i++]));
+	new = create_new_node(atoi_moded(argv[i++]), index++);
 	(*head)->next = new;
 	(*head)->prev = new;
 	while (argv[i])
 	{
-		new = create_new_node(atoi_moded(argv[i++]));
+		new = create_new_node(atoi_moded(argv[i++]), index++);
 		add_node_back(*head, new);
 	}
 }

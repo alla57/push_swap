@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:23:55 by alla              #+#    #+#             */
-/*   Updated: 2021/10/17 22:16:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/18 20:52:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }t_stack;
@@ -31,9 +32,10 @@ int		is_duplicates_num(char **argv);
 int		atoi_moded(const char *str);
 int		is_over_intmax(const char *str);
 int		print_error(int code_err);
+void	refresh_index(t_stack *head);
 void	add_node_front(t_stack *head, t_stack *new);
 void	add_node_back(t_stack *head, t_stack *new);
-t_stack	*create_new_node(int value);
+t_stack	*create_new_node(int value, int index);
 void	create_stack_a(char **argv, t_stack **head);
 void	reverse_rotate(t_stack *head);
 void	rotate(t_stack *head);
