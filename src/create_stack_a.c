@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:21:14 by alla              #+#    #+#             */
-/*   Updated: 2021/10/18 20:09:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/19 17:05:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ t_stack	*create_new_node(int value, int index)
 		return (NULL);
 	node->value = value;
 	node->index = index;
-	node->prev = node;
-	node->next = node;
+	node->prev = NULL;
+	node->next = NULL;
 	return (node);
 }
 
@@ -60,8 +60,8 @@ void	create_stack_a(char **argv, t_stack **head)
 	t_stack	*new;
 
 	i = 1;
-	index = 1;
-	*head = create_new_node(0);
+	index = 0;
+	*head = create_new_node(0, 0);
 	new = create_new_node(atoi_moded(argv[i++]), index++);
 	(*head)->next = new;
 	(*head)->prev = new;

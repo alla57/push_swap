@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:22:51 by alla              #+#    #+#             */
-/*   Updated: 2021/10/17 22:16:06 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/19 17:37:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,20 @@ int	print_error(int code_err)
 
 int	main(int argc, char **argv)
 {
-	t_stack *head;
+	t_stack *head_a;
+	t_stack	*head_b;
+
 	if (!is_valid_args(argc, argv + 1))
 		return (0);
-	create_stack_a(argv, &head);
-	algo_three_values(head);
-	printf("is the stack in order ? %d\n", is_in_order(head));
-	// print_stack(head);
-	printf("gg\n");
+	create_stack_a(argv, &head_a);
+	if (is_in_order(head_a))
+		return (printf("deja in order\n"));
+	if (argc == 4)
+		algo_three_values(head_a);
+	head_b = create_new_node(0, 0);
+	algo_ten_or_less_values(head_a, head_b);
+	// printf("is the stack in order ? %d\n", is_in_order(head_a));
+	// print_stack(head_a);
+	// printf("gg\n");
 	return (0);
 }

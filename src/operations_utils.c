@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:58:16 by user42            #+#    #+#             */
-/*   Updated: 2021/10/19 13:59:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/19 17:31:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	refresh_index(t_stack *head)
 	t_stack	*tmp;
 	int		i;
 
-	i = 1;
+	i = 0;
 	if (!head->next)
 		return ;
 	tmp = head->next;
@@ -46,18 +46,16 @@ void	changes_on_src(t_stack *head_src)
 	else if (len_stack(head_src) > 1)
 	{
 		head_src->next = second_src;
-		second_src->prev = head->prev;
+		second_src->prev = head_src->prev;
 		last_src->next = second_src;
 	}
 }
 
-void	changes_on_dest(t_stack *head_src, t_stack *head_dest)
+void	changes_on_dest(t_stack *first_src, t_stack *head_dest)
 {
-	t_stack	*first_src;
 	t_stack	*first_dest;
 	t_stack	*last_dest;
 
-	first_src = head_src->next;
 	first_dest = head_dest->next;
 	last_dest = head_dest->prev;
 	if (len_stack(head_dest) == 0)
