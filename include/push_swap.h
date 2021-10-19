@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:23:55 by alla              #+#    #+#             */
-/*   Updated: 2021/10/19 14:02:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/19 14:21:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		len_stack(t_stack *head);
 void	changes_on_dest(t_stack *head_src, t_stack *head_dest);
 void	changes_on_src(t_stack *head_src);
 void	refresh_index(t_stack *head);
+int		index_of_smallest(t_stack *head);
 
 
 
