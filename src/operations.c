@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 16:17:46 by alla              #+#    #+#             */
-/*   Updated: 2021/10/19 17:32:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/20 12:56:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	reverse_rotate(t_stack *head)
 	if (len_stack(head) < 2)
 		return ;
 	last = head->prev;
-	before_last = last->next;
+	before_last = last->prev;
 	head->next = last;
 	head->prev = before_last;
 	refresh_index(head);
@@ -42,13 +42,13 @@ void	rotate(t_stack *head)
 
 void	push(t_stack *head_src, t_stack *head_dest)
 {
-	t_stack	*first_src;
+	t_stack *first_src;
 
 	first_src = head_src->next;
 	if (len_stack(head_src) == 0)
 		return ;
 	changes_on_src(head_src);
-	changes_on_dest(first_src, head_dest);
+	changes_on_dest(&first_src, head_dest);
 	refresh_index(head_src);
 	refresh_index(head_dest);
 }

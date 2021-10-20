@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 21:16:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/19 17:10:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/19 18:34:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ void	print_stack(t_stack *head)
 	t_stack	*stack_a;
 
 	stack_a = head->next;
+	if (!head->next)
+		return ;
 	while (stack_a != head->prev)
 	{
-		printf("%d index = %d\n", stack_a->value, stack_a->index);
+		printf("%d\n", stack_a->value);
 		stack_a = stack_a->next;
 	}
-	printf("%d index = %d\n", stack_a->value, stack_a->index);
+	printf("%d\n", stack_a->value);
 }
 
 int is_in_order(t_stack *head)

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:58:16 by user42            #+#    #+#             */
-/*   Updated: 2021/10/19 17:31:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/20 12:53:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	changes_on_src(t_stack *head_src)
 	}
 }
 
-void	changes_on_dest(t_stack *first_src, t_stack *head_dest)
+void	changes_on_dest(t_stack **first_src, t_stack *head_dest)
 {
 	t_stack	*first_dest;
 	t_stack	*last_dest;
@@ -60,17 +60,18 @@ void	changes_on_dest(t_stack *first_src, t_stack *head_dest)
 	last_dest = head_dest->prev;
 	if (len_stack(head_dest) == 0)
 	{
-		head_dest->next = first_src;
-		head_dest->prev = first_src;
-		first_src->next = first_src;
-		first_src->prev = first_src;
+		head_dest->next = (*first_src);
+		head_dest->prev = (*first_src);
+		(*first_src)->next = (*first_src);
+		(*first_src)->prev = (*first_src);
 	}
 	else if (len_stack(head_dest) > 0)
 	{
-		head_dest->next = first_src;
-		first_src->next = first_dest;
-		first_src->prev = head_dest->prev;
-		first_dest->prev = first_src;
-		last_dest->next = first_src;
+		head_dest->next = (*first_src);
+		(*first_src)->next = first_dest;
+		(*first_src)->prev = head_dest->prev;
+		first_dest->prev = (*first_src);
+		last_dest->next = (*first_src);
 	}
+	// printf("first_dest = %d\n", head_dest->next->value);
 }
