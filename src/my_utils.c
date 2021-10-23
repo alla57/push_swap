@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 21:16:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/19 18:34:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/20 15:17:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,15 @@ int is_in_order(t_stack *head)
 		stack_a = stack_a->next;
 	}
 	return (1);
+}
+
+void	print_arr(int *arr, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len)
+	{
+		printf("%d\n", arr[i++]);
+	}
 }

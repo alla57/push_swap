@@ -6,11 +6,46 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 20:59:54 by user42            #+#    #+#             */
-/*   Updated: 2021/10/19 17:49:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/21 12:10:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	index_of_greatest(t_stack *head)
+{
+	t_stack	*tmp;
+	int		value;
+	int		index;
+
+	tmp = head->next;
+	value = tmp->value;
+	index = tmp->index;
+	while (tmp != head->prev)
+	{
+		if (tmp->value > value)
+		{
+			value = tmp->value;
+			index = tmp->index;
+		}
+		tmp = tmp->next;
+	}
+	if (tmp->value > value)
+		index = tmp->index;
+	return (index);
+}
+
+void	push_greatest_in_a(t_stack *head_a, t_stack *head_b)
+{
+	while (index_of_greatest(head_b) != 0)
+	{
+		if (index_of_greatest(head_b) > (len_stack(head_b) / 2))
+			reverse_rotate(head_b);
+		else
+			rotate(head_b);
+	}
+	push(head_b, head_a);
+}
 
 void	push_smallest_in_b(t_stack *head_a, t_stack *head_b)
 {

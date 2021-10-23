@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:58:16 by user42            #+#    #+#             */
-/*   Updated: 2021/10/20 12:53:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/20 13:00:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,4 @@ void	changes_on_dest(t_stack **first_src, t_stack *head_dest)
 		first_dest->prev = (*first_src);
 		last_dest->next = (*first_src);
 	}
-	// printf("first_dest = %d\n", head_dest->next->value);
 }

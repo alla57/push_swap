@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:22:51 by alla              #+#    #+#             */
-/*   Updated: 2021/10/20 12:57:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/21 20:42:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,28 @@ int	main(int argc, char **argv)
 	create_stack_a(argv, &head_a);
 	if (is_in_order(head_a))
 		return (printf("deja in order\n"));
-	if (argc == 4)
+	if (argc == 3)
+		swap(head_a);
+	else if (argc == 4)
 		algo_three_values(head_a);
-	head_b = create_new_node(0, 0);
-	algo_ten_or_less_values(head_a, head_b);
+	else if (argc <= 11)
+	{
+		head_b = create_new_node(0, 0);
+		algo_ten_or_less_values(head_a, head_b);
+	}
+	else if (argc <= 101)
+	{
+		head_b = create_new_node(0, 0);
+		algo_hundred(head_a, head_b);
+	}
+	else
+	{
+		head_b = create_new_node(0, 0);
+		algo_five_hundred(head_a, head_b);
+	}
+	//printf("%d\n", argc);
 	// printf("is the stack in order ? %d\n", is_in_order(head_a));
-	print_stack(head_a);
-	printf("gg\n");
+	//print_stack(head_a);
+	//printf("gg\n");
 	return (0);
 }
