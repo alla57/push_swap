@@ -6,13 +6,13 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 16:17:46 by alla              #+#    #+#             */
-/*   Updated: 2021/10/20 13:04:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/25 17:36:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	reverse_rotate(t_stack *head)
+void	reverse_rotate(t_stack *head, char *operation)
 {
 	t_stack	*last;
 	t_stack	*before_last;
@@ -24,10 +24,10 @@ void	reverse_rotate(t_stack *head)
 	head->next = last;
 	head->prev = before_last;
 	refresh_index(head);
-	ft_putstr("reverse_rotate\n");
+	ft_putstr(operation);
 }
 
-void	rotate(t_stack *head)
+void	rotate(t_stack *head, char *operation)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -39,12 +39,12 @@ void	rotate(t_stack *head)
 	head->next = second;
 	head->prev = first;
 	refresh_index(head);
-	ft_putstr("rotate\n");
+	ft_putstr(operation);
 }
 
-void	push(t_stack *head_src, t_stack *head_dest)
+void	push(t_stack *head_src, t_stack *head_dest, char *operation)
 {
-	t_stack *first_src;
+	t_stack	*first_src;
 
 	first_src = head_src->next;
 	if (len_stack(head_src) == 0)
@@ -53,10 +53,10 @@ void	push(t_stack *head_src, t_stack *head_dest)
 	changes_on_dest(&first_src, head_dest);
 	refresh_index(head_src);
 	refresh_index(head_dest);
-	ft_putstr("push\n");
+	ft_putstr(operation);
 }
 
-void	swap(t_stack *head)
+void	swap(t_stack *head, char *operation)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -69,5 +69,5 @@ void	swap(t_stack *head)
 	tmp = first->value;
 	first->value = second->value;
 	second->value = tmp;
-	ft_putstr("swap\n");
+	ft_putstr(operation);
 }

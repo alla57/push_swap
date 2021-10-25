@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:22:51 by alla              #+#    #+#             */
-/*   Updated: 2021/10/21 20:42:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/25 17:33:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,40 +25,47 @@ int	print_error(int code_err)
 	return (0);
 }
 
+void	free_stack(t_stack *head_a, t_stack *head_b)
+{
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
+	tmp = head_a->next;
+	tmp2 = tmp->next;
+	while (tmp2 != head_a->prev)
+	{
+		free(tmp);
+		tmp = tmp2;
+		tmp2 = tmp2->next;
+	}
+	free(tmp);
+	free(tmp2);
+	free(head_a);
+	free(head_b);
+}
 
 int	main(int argc, char **argv)
 {
-	t_stack *head_a;
+	t_stack	*head_a;
 	t_stack	*head_b;
 
 	if (!is_valid_args(argc, argv + 1))
 		return (0);
 	create_stack_a(argv, &head_a);
+	head_b = create_new_node(0, 0);
 	if (is_in_order(head_a))
-		return (printf("deja in order\n"));
-	if (argc == 3)
-		swap(head_a);
+		ft_putstr("already in order\n");
+	else if (argc == 3)
+		swap(head_a, "sa\n");
 	else if (argc == 4)
 		algo_three_values(head_a);
 	else if (argc <= 11)
-	{
-		head_b = create_new_node(0, 0);
 		algo_ten_or_less_values(head_a, head_b);
-	}
 	else if (argc <= 101)
-	{
-		head_b = create_new_node(0, 0);
 		algo_hundred(head_a, head_b);
-	}
 	else
-	{
-		head_b = create_new_node(0, 0);
 		algo_five_hundred(head_a, head_b);
-	}
-	//printf("%d\n", argc);
-	// printf("is the stack in order ? %d\n", is_in_order(head_a));
-	//print_stack(head_a);
-	//printf("gg\n");
+	//printf("is the stack in order ? %d\n", is_in_order(head_a)); ////////
+	free_stack(head_a, head_b);
 	return (0);
 }

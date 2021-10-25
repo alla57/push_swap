@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:23:55 by alla              #+#    #+#             */
-/*   Updated: 2021/10/21 20:41:01 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/25 17:24:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	add_node_front(t_stack *head, t_stack *new);
 void	add_node_back(t_stack *head, t_stack *new);
 t_stack	*create_new_node(int value, int index);
 void	create_stack_a(char **argv, t_stack **head);
-void	reverse_rotate(t_stack *head);
-void	rotate(t_stack *head);
-void	push(t_stack *head_src, t_stack *head_dest);
-void	swap(t_stack *head);
+void	reverse_rotate(t_stack *head, char *operation);
+void	rotate(t_stack *head, char *operation);
+void	push(t_stack *head_src, t_stack *head_dest, char *operation);
+void	swap(t_stack *head, char *operation);
 int		is_in_order(t_stack *head);
 void	print_stack(t_stack *head);
 void	algo_three_values(t_stack *head);
@@ -54,9 +54,13 @@ void	algo_ten_or_less_values(t_stack *head_a, t_stack *head_b);
 void	algo_hundred(t_stack *head_a, t_stack *head_b);
 
 void	push_greatest_in_a(t_stack *head_a, t_stack *head_b);
-int	index_of_greatest(t_stack *head);
+int		index_of_greatest(t_stack *head);
 void	algo_five_hundred(t_stack *head_a, t_stack *head_b);
-
+void	push_smaller_than(int key_nbr, t_stack *head_a, t_stack *head_b);
+int		there_is_smaller_than(int key_nbr, t_stack *head);
+void	insertion_sort(int *arr, int n);
+int		*sort_stack(t_stack *head_a);
+void	free_stack(t_stack *head_a, t_stack *head_b);
 
 
 
