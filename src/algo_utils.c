@@ -21,7 +21,7 @@ void	push_smaller_than(int key_nbr, t_stack *head_a, t_stack *head_b)
 		else
 			rotate(head_a, "ra\n");
 	}
-	if (head_a->next->value <= key_nbr) //ne sert peut-etre à rien
+	if (head_a->next->value <= key_nbr)
 		push(head_a, head_b, "pb\n");
 }
 

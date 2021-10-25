@@ -55,8 +55,8 @@ t_stack	*create_new_node(int value, int index)
 
 void	create_stack_a(char **argv, t_stack **head)
 {
-	int	i;
-	int	index;
+	int		i;
+	int		index;
 	t_stack	*new;
 
 	i = 1;
