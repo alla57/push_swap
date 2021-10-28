@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:23:55 by alla              #+#    #+#             */
-/*   Updated: 2021/10/25 17:24:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/28 21:54:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_stack
 
 int		is_valid_args(int argc, char **argv);
 int		is_number(char *num);
-int		is_duplicates_num(char **argv);
 int		atoi_moded(const char *str);
 int		is_over_intmax(const char *str);
 int		print_error(int code_err);
@@ -61,6 +60,10 @@ int		there_is_smaller_than(int key_nbr, t_stack *head);
 void	insertion_sort(int *arr, int n);
 int		*sort_stack(t_stack *head_a);
 void	free_stack(t_stack *head_a, t_stack *head_b);
+int		create_stack_str(char *str, int index, t_stack **head);
+int		check_duplicates(t_stack *head);
+int		check_is_number(char **argv);
+int		check_is_over_intmax(char **argv);
 
 
 

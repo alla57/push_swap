@@ -3,93 +3,108 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 09:03:39 by alboumed          #+#    #+#             */
-/*   Updated: 2021/10/15 22:18:39 by alla             ###   ########.fr       */
+/*   Updated: 2021/10/28 21:56:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_count_words(const char *s, char c)
+const char	*next_str(const char *str, char c)
+{
+	int			i;
+	const char	*s;
+
+	i = 0;
+	if (!str)
+		return (NULL);
+	while (str[i] == c)
+		i++;
+	while (str[i] && str[i] != c)
+		++i;
+	while (str[i] == c)
+		++i;
+	s = str + i;
+	return (s);
+}
+
+void	strcpy_until_c(const char *src, char *dest, char c)
+{
+	int	i;
+	int	j;
+
+	if (!src || !dest)
+		return ;
+	i = 0;
+	while (src[i] == c)
+		++i;
+	j = 0;
+	while (src[i] && src[i] != c)
+		dest[j++] = src[i++];
+	dest[j] = '\0';
+}
+
+int	word_len(const char *str, char c)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] == c)
+		++i;
+	len = 0;
+	while (str[i] && str[i] != c)
+	{
+		++len;
+		++i;
+	}
+	return (len);
+}
+
+int	count_words(const char *str, char c)
 {
 	int	i;
 	int	words;
 
+	if (!str)
+		return (0);
 	i = 0;
 	words = 0;
-	while (s[i])
+	while (str[i])
 	{
-		if (s[i] != c)
-		{
-			words++;
-			while (s[i] != c && s[i])
-				i++;
-		}
-		else
-			i++;
+		if (str[i] != c)
+			++words;
+		while (str[i] && str[i] != c)
+			++i;
+		while (str[i] == c)
+			++i;
 	}
 	return (words);
 }
 
-char	**ft_size_words(const char *s, char c, char **dest)
-{
-	int	i;
-	int	j;
-	int	size_word;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		size_word = 0;
-		if (s[i] != c)
-		{
-			while (s[i] != c && s[i])
-			{
-				++size_word;
-				++i;
-			}
-			dest[j] = malloc(sizeof(char) * (size_word + 1));
-			if (!dest[j])
-				return (NULL);
-			j++;
-		}
-		else
-			i++;
-	}
-	return (dest);
-}
-
-char	**ft_split(const char *s, char c)
+char	**ft_split(const char *str, char c)
 {
 	int		i;
-	int		j;
-	int		k;
 	char	**dest;
+	int		len;
 
-	i = 0;
-	j = 0;
-	dest = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	dest = malloc (sizeof(char *) * (count_words(str, c) + 1));
 	if (!dest)
 		return (NULL);
-	if (!(ft_size_words(s, c, dest)))
-		return (NULL);
-	k = 0;
-	while (s[i] && !k)
+	i = -1;
+	len = word_len(str, c);
+	while (len)
 	{
-		if (s[i] != c)
-		{
-			while (s[i] != c && s[i])
-				dest[j][k++] = s[i++];
-			dest[j][k] = '\0';
-			j++;
-		}
-		else
-			i++;
+		dest[++i] = malloc(sizeof(char) * (len + 1));
+		strcpy_until_c(str, dest[i], c);
+		str = next_str(str, c);
+		len = word_len(str, c);
 	}
-	dest[j] = NULL;
+	dest[++i] = NULL;
 	return (dest);
 }
