@@ -44,10 +44,10 @@ void	free_stack(t_stack *head_a, t_stack *head_b)
 	free(head_b);
 }
 
-int check_duplicates(t_stack *head)
+int	check_duplicates(t_stack *head)
 {
-	t_stack *tmp;
-	t_stack *tmp2;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
 	tmp = head->next;
 	tmp2 = tmp->next;

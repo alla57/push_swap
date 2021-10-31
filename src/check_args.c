@@ -34,7 +34,7 @@ int	atoi_moded(const char *str)
 	return (nb * sign);
 }
 
-int check_is_over_intmax(char **argv)
+int	check_is_over_intmax(char **argv)
 {
 	int		i;
 	char	**nums;
@@ -63,7 +63,7 @@ int check_is_over_intmax(char **argv)
 	return (1);
 }
 
-int check_is_number(char **argv)
+int	check_is_number(char **argv)
 {
 	int		i;
 	char	**nums;

@@ -13,11 +13,10 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_itoa(int n)
+int	get_index(int n)
 {
-	int		i;
-	int		temp;
-	char	*s;
+	int	temp;
+	int	i;
 
 	i = 1;
 	if (n < 0)
@@ -28,6 +27,15 @@ char	*ft_itoa(int n)
 		temp /= 10;
 		i++;
 	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int		i;
+	char	*s;
+
+	i = get_index(n);
 	s = malloc(sizeof(char) * (i + 1));
 	if (!s)
 		return (NULL);
@@ -38,7 +46,10 @@ char	*ft_itoa(int n)
 		s[0] = '-';
 	while (--i >= 0 && n != 0)
 	{
-		s[i] = ((n >= 0) ? 1 : -1) * (n % 10) + '0';
+		if (n >= 0)
+			s[i] = (n % 10) + '0';
+		else if (n < 0)
+			s[i] = (-n % 10) + '0';
 		n = n / 10;
 	}
 	return (s);
