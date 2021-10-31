@@ -12,7 +12,6 @@ SRC_PATH =	push_swap.c			\
 			check_args.c		\
 			create_stack_a.c	\
 			operations.c		\
-			my_utils.c			\
 			algo.c				\
 			algo_utils.c		\
 			algo_utils_2.c		\

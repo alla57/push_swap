@@ -39,7 +39,8 @@ void	free_stack(t_stack *head_a, t_stack *head_b)
 		tmp2 = tmp2->next;
 	}
 	free(tmp);
-	free(tmp2);
+	if (tmp != tmp2)
+		free(tmp2);
 	free(head_a);
 	free(head_b);
 }
@@ -79,7 +80,7 @@ int	main(int argc, char **argv)
 	if (check_duplicates(head_a))
 		return (print_error(3));
 	if (is_in_order(head_a))
-		ft_putstr("already in order\n");
+		return (0);
 	else if (len_stack(head_a) == 2)
 		swap(head_a, "sa\n");
 	else if (len_stack(head_a) == 3)

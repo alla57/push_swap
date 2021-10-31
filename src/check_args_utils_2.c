@@ -46,3 +46,17 @@ int	is_over_intmax(const char *str)
 	}
 	return (0);
 }
+
+int	is_in_order(t_stack *head)
+{
+	t_stack	*stack_a;
+
+	stack_a = head->next;
+	while(stack_a != head->prev)
+	{
+		if (stack_a->value > stack_a->next->value)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
