@@ -51,7 +51,6 @@ int		index_of_smallest(t_stack *head);
 void	push_smallest_in_b(t_stack *head_a, t_stack *head_b);
 void	algo_ten_or_less_values(t_stack *head_a, t_stack *head_b);
 void	algo_hundred(t_stack *head_a, t_stack *head_b);
-
 void	push_greatest_in_a(t_stack *head_a, t_stack *head_b);
 int		index_of_greatest(t_stack *head);
 void	algo_five_hundred(t_stack *head_a, t_stack *head_b);
@@ -64,7 +63,5 @@ int		create_stack_str(char *str, int index, t_stack **head);
 int		check_duplicates(t_stack *head);
 int		check_is_number(char **argv);
 int		check_is_over_intmax(char **argv);
-
-
 
 #endif

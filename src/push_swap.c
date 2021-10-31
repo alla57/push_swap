@@ -76,7 +76,6 @@ int	main(int argc, char **argv)
 		return (0);
 	create_stack_a(argv, &head_a);
 	head_b = create_new_node(0, 0);
-	//print_stack(head_a);
 	if (check_duplicates(head_a))
 		return (print_error(3));
 	if (is_in_order(head_a))
@@ -91,7 +90,6 @@ int	main(int argc, char **argv)
 		algo_hundred(head_a, head_b);
 	else
 		algo_five_hundred(head_a, head_b);
-	//printf("is the stack in order ? %d\n", is_in_order(head_a)); ////////
 	free_stack(head_a, head_b);
 	return (0);
 }
