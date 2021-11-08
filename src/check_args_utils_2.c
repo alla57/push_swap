@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args_utils_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 21:49:38 by user42            #+#    #+#             */
-/*   Updated: 2021/10/28 21:55:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/08 20:27:22 by alla             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	is_in_order(t_stack *head)
 	t_stack	*stack_a;
 
 	stack_a = head->next;
-	while(stack_a != head->prev)
+	while (stack_a != head->prev)
 	{
 		if (stack_a->value > stack_a->next->value)
 			return (0);
