@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 20:48:21 by alla              #+#    #+#             */
-/*   Updated: 2021/10/28 21:55:36 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 20:51:37 by alla             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	check_is_number(char **argv)
 int	is_valid_args(int argc, char **argv)
 {
 	if (argc < 2)
-		return (print_error(0));
+		return (0);
 	if (check_is_number(argv) == 0)
 		return (print_error(1));
 	if (check_is_over_intmax(argv) == 0)

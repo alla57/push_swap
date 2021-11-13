@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:22:51 by alla              #+#    #+#             */
-/*   Updated: 2021/10/28 16:03:53 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 20:55:30 by alla             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int	print_error(int code_err)
 {
-	if (code_err == 0)
-		ft_putstr_fd("Error\nwrong number of arguments !", 2);
-	else if (code_err == 1)
-		ft_putstr_fd("Error\nbad arguments type !", 2);
+	if (code_err == 1)
+		ft_putstr_fd("Error\n", 2);
 	else if (code_err == 2)
-		ft_putstr_fd("Error\nat least one argument is over intmax !", 2);
+		ft_putstr_fd("Error\n", 2);
 	else if (code_err == 3)
-		ft_putstr_fd("Error\nthere are duplicates !", 2);
+		ft_putstr_fd("Error\n", 2);
 	return (0);
 }
 
@@ -78,9 +76,9 @@ int	main(int argc, char **argv)
 	create_stack_a(argv, &head_a);
 	head_b = create_new_node(0, 0);
 	if (check_duplicates(head_a))
-		return (print_error(3));
-	if (is_in_order(head_a))
-		return (0);
+		print_error(3);
+	else if (is_in_order(head_a))
+		;
 	else if (len_stack(head_a) == 2)
 		swap(head_a, "sa\n");
 	else if (len_stack(head_a) == 3)

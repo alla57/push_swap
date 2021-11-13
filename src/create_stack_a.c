@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:21:14 by alla              #+#    #+#             */
-/*   Updated: 2021/10/28 22:02:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/10 23:00:51 by alla             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*create_new_node(int value, int index)
 {
 	t_stack	*node;
 
-	node = malloc(sizeof(t_stack *));
+	node = malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
 	node->value = value;
