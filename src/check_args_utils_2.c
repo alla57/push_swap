@@ -6,7 +6,7 @@
 /*   By: alla <alla@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 21:49:38 by user42            #+#    #+#             */
-/*   Updated: 2021/11/08 20:27:22 by alla             ###   ########.fr       */
+/*   Updated: 2021/11/16 18:12:28 by alla             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,21 @@ int	is_number(char *num)
 
 int	is_over_intmax(const char *str)
 {
-	int	i;
-	int	nb;
-	int	tmp;
+	int		i;
+	long	nb;
+	int		sign;
 
 	i = 0;
 	nb = 0;
+	sign = 1;
 	if (str[i] == '-')
-		++i;
+		sign = ++i * -1;
+	if (ft_strlen(str + i) > 10)
+		return (1);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		tmp = nb;
 		nb = nb * 10 + (str[i] - 48);
-		if (tmp != ((nb - (str[i] - 48)) / 10))
+		if (nb * sign > 2147483647 || nb * sign < -2147483648)
 			return (1);
 		++i;
 	}
